@@ -11,6 +11,26 @@ ble.name = "RW&B"
 
 advertisement = ProvideServicesAdvertisement(UARTService())
 
+Note1 = 233
+Note2 = 294
+Note3 = 330
+Note4 = 349
+Note5 = 392
+Note6 = 440
+Note7 = 466
+Note8 = 523
+Note9 = 587
+Note10 = 622
+Note11 = 698
+
+def TonePlus(N, T):
+    global L, t
+    R.value = not bool(2 - L % 3)
+    G.value = bool(1 - L % 3)
+    B.value = not bool(L % 3)
+    tone(P0_02, N, t * T)
+    L = L + 1
+
 while True:
     ble.start_advertising(advertisement)
     R.value = G.value = B.value = 1
@@ -19,26 +39,6 @@ while True:
     while ble.connected:
         L = 2
         t = 0.5
-
-        Note1 = 233
-        Note2 = 294
-        Note3 = 330
-        Note4 = 349
-        Note5 = 392
-        Note6 = 440
-        Note7 = 466
-        Note8 = 523
-        Note9 = 587
-        Note10 = 622
-        Note11 = 698
-
-        def TonePlus(N, T):
-            global L, t
-            R.value = not bool(2 - L % 3)
-            G.value = bool(1 - L % 3)
-            B.value = not bool(L % 3)
-            tone(P0_02, N, t * T)
-            L = L + 1
 
         TonePlus(Note4, 0.75)
         TonePlus(Note2, 0.25)
