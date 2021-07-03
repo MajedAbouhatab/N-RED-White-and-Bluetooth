@@ -1,0 +1,1 @@
+Adafruit CircuitPython 6.2.0 on 2021-04-05; PCA10059 nRF52840 Dongle with nRF52840
